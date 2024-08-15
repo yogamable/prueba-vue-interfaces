@@ -1,9 +1,7 @@
 <template>
-  
-
     <div class="card d-flex" style="width: 18rem;">
       <div >
-        <img :src="pokemon.imagen" class="card-img-top" alt="pokemon.name" :style="{height: altura, backdropFilter: filtroImg}" >
+        <img :src="pokemon.imagen" class="card-img-top" alt="pokemon.name" :style="{height: altura, filter: filtroImg}" >
       </div>
       <div class="card-body">
         <h5 class="card-title text-center">¡Descubre su nombre!</h5>
@@ -39,9 +37,10 @@ export default {
   methods: {
     
     descubrirPokemon(){
-     if(this.pokemon.inputPokemon == this.pokemon.nombre){
+     if(this.inputPokemon == this.pokemon.nombre){
         alert("¡Felicitaciones, adivinaste!");
         this.filtroImg = 'none';
+        this.$emit('descubrirPokemon');
      }else {
       alert("¡Te equivocaste!");
      }
@@ -53,8 +52,8 @@ export default {
 
 <style scoped>
 
-img{
-  backdrop-filter: blur(10px);
+.filtroImg{
+  filter: blur(10px);
 }
 
 </style>

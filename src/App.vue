@@ -1,10 +1,12 @@
 <template>
-  <div id="app" class="d-block m-5">
-    <div>
-      <h1>Descubre tus Pokemon</h1>
+  <div id="app" class="p-4 ">
+    <div class="row d-flex justify-content-center gap-3">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRn74k9jrdLZiWw0dCfb06gfj7SzsJbSBR0cQ&s" style="width: 20rem;" alt="Pokemon">
+      <h1 class="text-center fs-1 p-2">¿Quién es ese Pokémon?</h1>
+      <p class="text-center fs-4 fw-bold pb-2">Pokemones descubiertos: <span class="text-warning">{{ pokemonesDescubiertos }}</span></p>
     </div>
 
-    <div class="row d-flex gap-3">
+    <div class="row d-flex justify-content-center gap-3">
       <PokemonCard v-for="(pokemon, index) in pokemones"
       :key="index"
       :pokemon="pokemon"
@@ -23,6 +25,7 @@ export default {
   data(){
     return{
       pokemones: [],
+      pokemonesDescubiertos: 0,
     }
   },
   
@@ -57,7 +60,7 @@ export default {
     },
 
     pokemonDescubierto(){
-      
+      this.pokemonesDescubiertos++;
     }
   }
 }
